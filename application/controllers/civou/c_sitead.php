@@ -37,7 +37,15 @@ class c_sitead extends CI_Controller {
         }
     }
 
-   /////////////////////////////////////////////////////////////////////////////
+    function adminlog() {
+        $this->load->view('admin/login');
+    }
+
+    function registeremploy() {
+        $this->load->view('admin/registeremploye');
+    }
+
+    /////////////////////////////////////////////////////////////////////////////
 }
 
 ?>
