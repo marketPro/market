@@ -19,26 +19,9 @@
 		
         <link href="<?php echo base_url();?>css/ticker-style.css" rel="stylesheet" type="text/css" />
 	
-	     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-		<script src="<?php echo base_url();?>js/jquery.easing.1.3.js" type="text/javascript" ></script>
-
-		<!-- FlexSlider -->	
-		<script src="<?php echo base_url();?>js/jquery.flexslider.js" type="text/javascript" ></script> 	
-		<script src="<?php echo base_url();?>js/function.js" type="text/javascript" ></script> 
-
-		<!-- Ticker -->	
-		<script src="<?php echo base_url();?>js/ticker.js" type="text/javascript" ></script> 	
-		<script src="<?php echo base_url();?>js/setting.js"  type="text/javascript" ></script> 
-
-		<!-- prettyPhoto -->	
-		<script src="<?php echo base_url();?>js/jquery.prettyPhoto.js" type="text/javascript" ></script> 	
-		<script src="<?php echo base_url();?>js/setting-1.js"type="text/javascript"  ></script> 
-
-		<!-- ui totop -->	
-		<script src="<?php echo base_url();?>js/smoothscroll.js"  type="text/javascript" ></script>
-		<script src="<?php echo base_url();?>js/jquery.ui.totop.js"  type="text/javascript"></script>
-		
-	<script src="<?php echo base_url();?>js/jquery.ticker.js" type="text/javascript"></script>
+	    
+	
+	
 	<script src="<?php echo base_url();?>js/site.js" type="text/javascript"></script>
 		
 		
@@ -73,300 +56,327 @@
 		<li class="news-item">Further updates to jQuery News Ticker are coming soon!</li>
 	</ul>
         </div>
-		<section id="">	
+			
 			<div class="container totop30">
-				<section id="middle">
+		
 			<div id="content">
-			    <div id="left" style="background:#111">       
+			    <div id="left" >       
                 <div class="featured_form">
-									 <?php echo form_open('#'); ?>
+                        
+									 <?php echo form_open('site/sign_user_validation');  ?>
+                                     
 									<div class="heading center">
 										<h4><span class="bold">يجب ادخال جميع البيانات بشكل صحيح</span></h4>
 										<div class="dotted"></div>
 									</div>
-										<ul>
-											<li>
-								<label for="name">اسم المستخدم</label>
-                                 <?php echo form_input(array('name'=>'username','id'=>"name",'onblur'=>"if(this.value=='')this.value='اسم المستخدم';" , 'onfocus'=>"if(this.value=='اسم المستخدم')this.value='';", 'value'=>"اسم المستخدم")); ?>
-
-											</li>
-											<li>
-								<label for="email">البريد الالكتروني</label>
-
-                                <?php echo form_input(array('name'=>'email','id'=>"email",'onblur'=>"if(this.value=='')this.value='البريد الالكتروني';" , 'onfocus'=>"if(this.value=='البريد الالكتروني')this.value='';", 'value'=>"البريد الالكتروني")); ?>
-											</li>
-                                            <li>
-								<label for="email">الدوله</label>
-
+                                     <div style="color:#FC3;margin-right:140px;">
+									 <?php if(isset($regist)){echo '<p style="margin-left:30px;color:#3C3;">'.$regist.'</p>' ;}else{ 
+                                                                             echo validation_errors()  ;
+									 if( isset($$country) && empty($country)){echo '<p style="margin-left:500px;">يجب اختيار الدوله</p>'; } } ?></div>
+                                     
+                                     
+                                     <table width="750" border="0">
+  <tr>
+   
+    <td> <?php echo form_input(array('name'=>'username','id'=>"name", 'value'=>$this->input->post('username') )); ?></td>
+     <td><label for="name">اسم المستخدم</label></td>
+  </tr>
+  <tr>
+   
+    <td> <?php echo form_input(array('name'=>'email','id'=>"email",'value'=>$this->input->post('email'))); ?></td>
+     <td><label for="email">البريد الالكتروني</label></td>
+  </tr>
+  <tr>
+   
+    <td>
      <select name="CmbCountry" id="CmbCountry" class="home" style="width:570px;text-align:right" >
     <option value="none" selected="selected" >اختار دولتك</option>
-	<option value="AF">أفغانستان</option>
-	<option value="AL">البانيا</option>
-	<option value="DZ">الجزائر</option>
-	<option value="AS">ساموا الأمريكية</option>
-	<option value="AD">اندورا</option>
-	<option value="AO">انغولا</option>
-	<option value="AI">انجولا</option>
-	<option value="AQ">انتركتيكا</option>
-	<option value="AG">انتيغوا وبربودا</option>
-	<option value="AR">الأرجنتين</option>
-	<option value="AM">ارمينيا</option>
-	<option value="AW">اروبا</option>
-	<option value="AC">جزيرة أسينشون</option>
-	<option value="AU">استراليا</option>
-	<option value="AT">النمسا</option>
-	<option value="AZ">اذربيجان</option>
+	<option value="أفغانستان">أفغانستان</option>
+	<option value="البانيا">البانيا</option>
+	<option value="الجزائر">الجزائر</option>
+	<option value="ساموا الأمريكية">ساموا الأمريكية</option>
+	<option value="اندورا">اندورا</option>
+	<option value="انغولا">انغولا</option>
+	<option value="انجولا">انجولا</option>
+	<option value="انتركتيكا">انتركتيكا</option>
+	<option value="انتيغوا وبربودا">انتيغوا وبربودا</option>
+	<option value="الأرجنتين">الأرجنتين</option>
+	<option value="ارمينيا">ارمينيا</option>
+	<option value="اروبا">اروبا</option>
+	<option value="جزيرة أسينشون">جزيرة أسينشون</option>
+	<option value="استراليا">استراليا</option>
+	<option value="النمسا">النمسا</option>
+	<option value="اذربيجان">اذربيجان</option>
 	<option value="BS">البهامز</option>
-	<option value="BH">البحرين</option>
-	<option value="BD">بنجلادش</option>
-	<option value="BB">بربادوس</option>
-	<option value="BY">بيلا روس</option>
-	<option value="BE">بلجيكا</option>
-	<option value="BZ">بليز</option>
-	<option value="BJ">بنن</option>
-	<option value="BM">برمودا</option>
-	<option value="BT">بوتان</option>
-	<option value="BO">بوليفيا</option>
-	<option value="BA">البوسنة والهرسك</option>
-	<option value="BW">بوتسوانا</option>
-	<option value="BV">جزيرة بوفيت</option>
-	<option value="BR">البرازيل</option>
-	<option value="BN">بروناى دار السلام</option>
-	<option value="BG">بلغاريا</option>
-	<option value="BF">بوركينا فاسو</option>
-	<option value="BI">بوروندي</option>
-	<option value="KH">كامبوديا</option>
-	<option value="CM">كاميرون</option>
-	<option value="CA">كندا</option>
-	<option value="CV">كيب فردي</option>
-	<option value="KY">جزر كايمان</option>
-	<option value="CF">جمهورية أفريقيا الوسطي</option>
-	<option value="TD">تشاد</option>
-	<option value="CL">تشيلي</option>
-	<option value="CN">الصين</option>
-	<option value="CX">جزيرة كريسماس</option>
-	<option value="CC">جزر كوكس ( كيلنغ)</option>
-	<option value="CO">كولومبيا</option>
-	<option value="KM">جزر القمر</option>
-	<option value="CG">الكونغو (جمهورية الكونغو الديموقراطية)</option>
-	<option value="CK">جرز كوك</option>
-	<option value="CR">كوستا ريكا</option>
-	<option value="CI">كوت ديفوار</option>
-	<option value="HR">كرواتيا</option>
-	<option value="CU">كوبا</option>
-	<option value="CY">قبرص</option>
-	<option value="CZ">الجمهورية التشيكية</option>
-	<option value="DK">الدنمارك</option>
-	<option value="DJ">جيبوتى</option>
-	<option value="DM">دومينيكا</option>
-	<option value="DO">الجمهورية الدومينكية</option>
-	<option value="TP">تيمور الشرقية</option>
-	<option value="EC">الاكوادور</option>
+	<option value="البحرين">البحرين</option>
+	<option value="بنجلادش">بنجلادش</option>
+	<option value="بربادوس">بربادوس</option>
+	<option value="بيلا روس">بيلا روس</option>
+	<option value="بلجيكا">بلجيكا</option>
+	<option value="بليز">بليز</option>
+	<option value="بنن">بنن</option>
+	<option value="برمودا">برمودا</option>
+	<option value="بوتان">بوتان</option>
+	<option value="بوليفيا">بوليفيا</option>
+	<option value="البوسنة والهرسك">البوسنة والهرسك</option>
+	<option value="بوتسوانا">بوتسوانا</option>
+	<option value="جزيرة بوفيت">جزيرة بوفيت</option>
+	<option value="البرازيل">البرازيل</option>
+	<option value="بروناى دار السلام">بروناى دار السلام</option>
+	<option value="بلغاريا">بلغاريا</option>
+	<option value="بوركينا فاسو">بوركينا فاسو</option>
+	<option value="بوروندي">بوروندي</option>
+	<option value="كامبوديا">كامبوديا</option>
+	<option value="كاميرون">كاميرون</option>
+	<option value="كندا">كندا</option>
+	<option value="كيب فردي">كيب فردي</option>
+	<option value="جزر كايمان">جزر كايمان</option>
+	<option value="جمهورية أفريقيا الوسطي">جمهورية أفريقيا الوسطي</option>
+	<option value="تشاد">تشاد</option>
+	<option value="تشيلي">تشيلي</option>
+	<option value="الصين">الصين</option>
+	<option value="زيرة كريسماس">جزيرة كريسما</option>
+	<option value="جزر كوكس ( كيلنغ)">جزر كوكس ( كيلنغ)</option>
+	<option value="كولومبيا">كولومبيا</option>
+	<option value="جزر القمر">جزر القمر</option>
+	<option value="الكونغو (جمهورية الكونغو الديموقراطية)">الكونغو (جمهورية الكونغو الديموقراطية)</option>
+	<option value="جرز كوك">جرز كوك</option>
+	<option value="كوستا ريكا">كوستا ريكا</option>
+	<option value="كوت ديفوار">كوت ديفوار</option>
+	<option value="كرواتيا">كرواتيا</option>
+	<option value="كوبا">كوبا</option>
+	<option value="قبرص">قبرص</option>
+	<option value="الجمهورية التشيكية">الجمهورية التشيكية</option>
+	<option value="الدنمارك">الدنمارك</option>
+	<option value="جيبوتى">جيبوتى</option>
+	<option value="دومينيكا">دومينيكا</option>
+	<option value="الجمهورية الدومينكية">الجمهورية الدومينكية</option>
+	<option value="تيمور الشرقية">تيمور الشرقية</option>
+	<option value="الاكوادور">الاكوادور</option>
 	
-	<option value="SV">السلفادور</option>
-	<option value="GQ">غينيا الاستوائية</option>
-	<option value="ER">اريتريا</option>
-	<option value="EE">استونيا</option>
-	<option value="ET">اثيوبيا</option>
-	<option value="FK">جرز فوكلاند (مالفيناس)</option>
-	<option value="FO">جزر فارو</option>
-	<option value="FJ">فيجي</option>
-	<option value="FI">فنلندا</option>
-	<option value="FR">فرنسا</option>
-	<option value="GF">غويانا الفرنسية</option>
-	<option value="PF">بولينيزيا الفرنسية</option>
-	<option value="TF">الفرنسية الجنوبية وانتركاتيكا</option>
-	<option value="GA">الجابون</option>
-	<option value="GM">غامبيا</option>
-	<option value="GE">جورجيا</option>
-	<option value="DE">المانيا</option>
-	<option value="GH">غانا</option>
-	<option value="GI">جبل طارق</option>
-	<option value="GR">اليونان</option>
-	<option value="GL">الجزيرة الخضراء</option>
-	<option value="GD">غرينادا</option>
-	<option value="GP">غواديلوب</option>
-	<option value="GU">جوام</option>
-	<option value="GT">جواتيمالا</option>
-	<option value="GG">جرنساي</option>
-	<option value="GW">غينيا بوساي</option>
-	<option value="GN">غينيا</option>
-	<option value="GY">غيانا</option>
-    <option  value="EG">مصر</option>
-	<option value="HT">هايتي</option>
-	<option value="HN">هندوراس</option>
-	<option value="HK">هونج كونج</option>
-	<option value="HU">هنغاريا</option>
-	<option value="IS">ايسلندا</option>
-	<option value="IN">الهند</option>
-	<option value="ID">اندونيسيا</option>
-	<option value="IR">ايران</option>
-	<option value="IQ">العراق</option>
-	<option value="IE">ايرلاندا</option>
-	<option value="IL">اسرائيل</option>
-	<option value="IT">ايطاليا</option>
-	<option value="JM">جامايكا</option>
-	<option value="JP">اليابان</option>
-	<option value="JE">جيرزي</option>
-	<option value="JO">الاردن</option>
-	<option value="KZ">كازاخستان</option>
-	<option value="KE">كينيا</option>
-	<option value="KI">كيريباتي</option>
-	<option value="KR">كوريا</option>
-	<option value="KW">الكويت</option>
-	<option value="KG">قيرغيزستان</option>
-	<option value="LA">لواس</option>
-	<option value="LV">لاتفيا</option>
-	<option value="LB">لبنان</option>
-	<option value="LS">ليسوتو</option>
-	<option value="LR">ليبيريا</option>
-	<option value="LY">الجماهيرية الليبية</option>
-	<option value="LI">ليختننشتاين</option>
-	<option value="LT">ليتوانيا</option>
-	<option value="LU">لوكسمبورج</option>
-	<option value="MO">منطقة ماكاو الاداريه الخاصة</option>
-	<option value="MK">مقدونية</option>
-	<option value="MG">مدغشقر</option>
-	<option value="MW">مالاوي</option>
-	<option value="MY">ماليزيا</option>
-	<option value="MV">جزر المالديف</option>
-	<option value="ML">مالي</option>
-	<option value="MT">مالطا</option>
-	<option value="MH">جزر المارشال</option>
-	<option value="MQ">مارتينيك</option>
-	<option value="MR">موريتانيا</option>
-	<option value="MU">موريشيوس</option>
-	<option value="YT">مايوت</option>
-	<option value="MX">المكسيك</option>
-	<option value="FM">ماكرونيزيا</option>
-	<option value="MD">مولدوفا</option>
-	<option value="MC">موناكو</option>
-	<option value="MN">منغوليا</option>
-	<option value="MS">منتسيرات</option>
-	<option value="MA">المغرب</option>
-	<option value="MZ">موزامبيق</option>
-	<option value="MM">مايانمار</option>
-	<option value="NA">ناميبيا</option>
-	<option value="NR">ناورو</option>
-	<option value="NP">نيبال</option>
-	<option value="NL">هولندا</option>
-	<option value="AN">جزر الانتيل الهولندية</option>
-	<option value="NC">كالدونيا الجديدة</option>
-	<option value="NZ">نيوزيلاندا</option>
-	<option value="NI">نيكاراجوا</option>
-	<option value="NE">النيجر</option>
-	<option value="NG">نيجيريا</option>
-	<option value="NU">نيو</option>
-	<option value="NF">جزيرة نورفولك</option>
-	<option value="NK">كوريا الشمالية</option>
-	<option value="MP">جزر ماريانا الشمالية</option>
-	<option value="NO">النرويج</option>
-	<option value="NS">غير محددي الجنسيNة</option>
-	<option value="OM">عمان</option>
-	<option value="PK">باكستان</option>
-	<option value="PW">بالاو</option>
-	<option value="PS">السلطة الفلسطينية</option>
-	<option value="PA">بنما</option>
-	<option value="PG">بابوا غينيا الجديدة</option>
-	<option value="PY">باراغواي</option>
-	<option value="PE">بيرو</option>
-	<option value="PH">الفليبين</option>
-	<option value="PN">جزر بيتكيرن</option>
-	<option value="PL">بولندا</option>
-	<option value="PT">برتغال</option>
-	<option value="PR">بورتو ريكو</option>
-	<option value="QA">قطر</option>
-	<option value="RE">ريونيون</option>
-	<option value="RO">رومانيا</option>
-	<option value="RU">روسيا الاتحادية</option>
-	<option value="RW">رواندا</option>
-	<option value="LC">سانت لوسيا</option>
-	<option value="VC">سانت فنسينت</option>
-	<option value="WS">ساموا</option>
-	<option value="SM">سان مارينو</option>
-	<option value="ST">ساو تومي وبرينسيبي</option>
-	<option value="SA">المملكة العربية السعودية</option>
-	<option value="SN">السنغال</option>
-	<option value="Se">صربيا والجبل الاسود</option>
-	<option value="SC">سيشيل</option>
-	<option value="SL">سيراليون</option>
-	<option value="SG">سنغافورة</option>
-	<option value="SK">سلوفاكيا</option>
-	<option value="SI">سلوفينيا</option>
-	<option value="SB">جزر سليمان</option>
-	<option value="SO">الصومال</option>
-	<option value="ZA">جنوب أفريقيا</option>
-	<option value="GS">جورجيا الجنوبية وجزر ساندويتش الجنوبية</option>
-	<option value="ES">اسبانيا</option>
-	<option value="LK">سريلانكا</option>
-	<option value="SH">سانت هيلانة</option>
-	<option value="PM">سانت بيير وميكلون</option>
-	<option value="SD">السودان</option>
-	<option value="SR">سورينام</option>
-	<option value="SZ">سوازيلاند</option>
-	<option value="CH">سويسرا</option>
-	<option value="SY">الجمهورية العربية السورية</option>
-	<option value="TW">تايوان</option>
-	<option value="TJ">طاجيكستان</option>
-	<option value="TZ">تانزانيا</option>
-	<option value="TH">تايلاند</option>
-	<option value="TG">توغو</option>
-	<option value="TK">توكيلاو</option>
-	<option value="TO">تونجا</option>
-	<option value="TT">ترينيداد وتوباغو</option>
-	<option value="TN">تونس</option>
-	<option value="TR">تركيا</option>
-	<option value="TM">توركمنستان</option>
-	<option value="TC">جزر تركس و كايكوس</option>
-	<option value="TV">توفالو</option>
-	<option value="UG">اوغندا</option>
-	<option value="UA">اوكرانيا</option>
-	<option value="AE">الامارات العربية المتحدة</option>
-	<option value="UK">المملكة المتحدة</option>
-	<option value="US">الولايات المتحدة</option>
-	<option value="UY">اوروغواي</option>
-	<option value="UZ">اوزبكستان</option>
-	<option value="VU">فانواتو</option>
-	<option value="VA">الفاتيكان</option>
-	<option value="VE">فنزويلا</option>
-	<option value="VN">فيتنام</option>
-	<option value="VI">جزر فيرجن البريطانية</option>
-	<option value="WF">واليس وفوتونا</option>
-	<option value="EH">الصحراء الغربية</option>
-	<option value="YE">اليمن</option>
-	<option value="YU">يوغوسلافيا</option>
-	<option value="ZR">زائير</option>
-	<option value="ZM">زامبيا</option>
-	<option value="ZW">زيمبابوي</option>
+	<option value="السلفادور">السلفادور</option>
+	<option value="غينيا الاستوائية">غينيا الاستوائية</option>
+	<option value="اريتريا">اريتريا</option>
+	<option value="استونيا">استونيا</option>
+	<option value="اثيوبيا">اثيوبيا</option>
+	<option value="جرز فوكلاند (مالفيناس)">جرز فوكلاند (مالفيناس)</option>
+	<option value="جزر فارو">جزر فارو</option>
+	<option value="فيجي">فيجي</option>
+	<option value="فنلندا">فنلندا</option>
+	<option value="فرنسا">فرنسا</option>
+	<option value="غويانا الفرنسية">غويانا الفرنسية</option>
+	<option value="بولينيزيا الفرنسية">بولينيزيا الفرنسية</option>
+	<option value="الفرنسية الجنوبية وانتركاتيكا">الفرنسية الجنوبية وانتركاتيكا</option>
+	<option value="الجابون">الجابون</option>
+	<option value="غامبيا">غامبيا</option>
+	<option value="جورجيا">جورجيا</option>
+	<option value="المانيا">المانيا</option>
+	<option value="غانا">غانا</option>
+	<option value="جبل طارق">جبل طارق</option>
+	<option value="اليونان">اليونان</option>
+	<option value="الجزيرة الخضراء">الجزيرة الخضراء</option>
+	<option value="غرينادا">غرينادا</option>
+	<option value="غواديلوب">غواديلوب</option>
+	<option value="جوام">جوام</option>
+	<option value="جواتيمالا">جواتيمالا</option>
+	<option value="جرنساي">جرنساي</option>
+	<option value="غينيا بوساي">غينيا بوساي</option>
+	<option value="غينيا">غينيا</option>
+	<option value="غيانا">غيانا</option>
+    <option  value="مصر">مصر</option>
+	<option value="هايتي">هايتي</option>
+	<option value="هندوراس">هندوراس</option>
+	<option value="هونج كونج">هونج كونج</option>
+	<option value="هنغاريا">هنغاريا</option>
+	<option value="ايسلندا">ايسلندا</option>
+	<option value="الهند">الهند</option>
+	<option value="اندونيسيا">اندونيسيا</option>
+	<option value="ايران">ايران</option>
+	<option value="العراق">العراق</option>
+	<option value="ايرلاندا">ايرلاندا</option>
+	<option value="اسرائيل">اسرائيل</option>
+	<option value="ايطاليا">ايطاليا</option>
+	<option value="جامايكا">جامايكا</option>
+	<option value="اليابان">اليابان</option>
+	<option value="جيرزي">جيرزي</option>
+	<option value="الاردن">الاردن</option>
+	<option value="كازاخستان">كازاخستان</option>
+	<option value="كينيا">كينيا</option>
+	<option value="كيريباتي">كيريباتي</option>
+	<option value="كوريا">كوريا</option>
+	<option value="الكويت">الكويت</option>
+	<option value="قيرغيزستان">قيرغيزستان</option>
+	<option value="لواس">لواس</option>
+	<option value="لاتفيا">لاتفيا</option>
+	<option value="لبنان">لبنان</option>
+	<option value="ليسوتو">ليسوتو</option>
+	<option value="ليبيريا">ليبيريا</option>
+	<option value="الجماهيرية الليبية">الجماهيرية الليبية</option>
+	<option value="ليختننشتاين">ليختننشتاين</option>
+	<option value="ليتوانيا">ليتوانيا</option>
+	<option value="لوكسمبورج">لوكسمبورج</option>
+	<option value="منطقة ماكاو الاداريه الخاصة">منطقة ماكاو الاداريه الخاصة</option>
+	<option value="مقدونية">مقدونية</option>
+	<option value="مدغشقر">مدغشقر</option>
+	<option value="مالاوي">مالاوي</option>
+	<option value="ماليزيا">ماليزيا</option>
+	<option value="جزر المالديف">جزر المالديف</option>
+	<option value="مالي">مالي</option>
+	<option value="مالطا">مالطا</option>
+	<option value="جزر المارشال">جزر المارشال</option>
+	<option value="مارتينيك">مارتينيك</option>
+	<option value="موريتانيا">موريتانيا</option>
+	<option value="موريشيوس">موريشيوس</option>
+	<option value="مايوت">مايوت</option>
+	<option value="المكسيك">المكسيك</option>
+	<option value="ماكرونيزيا">ماكرونيزيا</option>
+	<option value="مولدوفا">مولدوفا</option>
+	<option value="موناكو">موناكو</option>
+	<option value="منغوليا">منغوليا</option>
+	<option value="منتسيرات">منتسيرات</option>
+	<option value="المغرب">المغرب</option>
+	<option value="موزامبيق">موزامبيق</option>
+	<option value="مايانمار">مايانمار</option>
+	<option value="ناميبيا">ناميبيا</option>
+	<option value="ناورو">ناورو</option>
+	<option value="نيبال">نيبال</option>
+	<option value="هولندا">هولندا</option>
+	<option value="جزر الانتيل الهولندية">جزر الانتيل الهولندية</option>
+	<option value="كالدونيا الجديدة">كالدونيا الجديدة</option>
+	<option value="نيوزيلاندا">نيوزيلاندا</option>
+	<option value="نيكاراجوا">نيكاراجوا</option>
+	<option value="النيجر">النيجر</option>
+	<option value="نيجيريا">نيجيريا</option>
+	<option value="نيو">نيو</option>
+	<option value="جزيرة نورفولك">جزيرة نورفولك</option>
+	<option value="كوريا الشمالية">كوريا الشمالية</option>
+	<option value="جزر ماريانا الشمالية">جزر ماريانا الشمالية</option>
+	<option value="النرويج">النرويج</option>
+	<option value="غير محددي الجنسي">غير محددي الجنسي</option>
+	<option value="عمان">عمان</option>
+	<option value="باكستان">باكستان</option>
+	<option value="بالاو">بالاو</option>
+	<option value="فلسطين">فلسطين</option>
+	<option value="بنما">بنما</option>
+	<option value="بابوا غينيا الجديدة">بابوا غينيا الجديدة</option>
+	<option value="باراغواي">باراغواي</option>
+	<option value="بيرو">بيرو</option>
+	<option value="الفليبين">الفليبين</option>
+	<option value="جزر بيتكيرن">جزر بيتكيرن</option>
+	<option value="بولندا">بولندا</option>
+	<option value="برتغال">برتغال</option>
+	<option value="بورتو ريكو">بورتو ريكو</option>
+	<option value="قطر">قطر</option>
+	<option value="ريونيون">ريونيون</option>
+	<option value="رومانيا">رومانيا</option>
+	<option value="روسيا الاتحادية">روسيا الاتحادية</option>
+	<option value="رواندا">رواندا</option>
+	<option value="سانت لوسيا">سانت لوسيا</option>
+	<option value="سانت فنسينت">سانت فنسينت</option>
+	<option value="ساموا">ساموا</option>
+	<option value="سان مارينو">سان مارينو</option>
+	<option value="ساو تومي وبرينسيبي">ساو تومي وبرينسيبي</option>
+	<option value="المملكة العربية السعودية">المملكة العربية السعودية</option>
+	<option value="السنغال">السنغال</option>
+	<option value="صربيا والجبل الاسود">صربيا والجبل الاسود</option>
+	<option value="سيشيل">سيشيل</option>
+	<option value="سيراليون">سيراليون</option>
+	<option value="سنغافورة">سنغافورة</option>
+	<option value="سلوفاكيا">سلوفاكيا</option>
+	<option value="سلوفينيا">سلوفينيا</option>
+	<option value="جزر سليمان">جزر سليمان</option>
+	<option value="الصومال">الصومال</option>
+	<option value="جنوب أفريقيا">جنوب أفريقيا</option>
+	<option value="جورجيا الجنوبية وجزر ساندويتش الجنوبية">جورجيا الجنوبية وجزر ساندويتش الجنوبية</option>
+	<option value="اسبانيا">اسبانيا</option>
+	<option value="سريلانكا">سريلانكا</option>
+	<option value="سانت هيلانة">سانت هيلانة</option>
+	<option value="سانت بيير وميكلون">سانت بيير وميكلون</option>
+	<option value="السودان">السودان</option>
+	<option value="سورينام">سورينام</option>
+	<option value="سوازيلاند">سوازيلاند</option>
+	<option value="سويسرا">سويسرا</option>
+	<option value="سوريا">سوريا</option>
+	<option value="تايوان">تايوان</option>
+	<option value="طاجيكستان">طاجيكستان</option>
+	<option value="تانزانيا">تانزانيا</option>
+	<option value="تايلاند">تايلاند</option>
+	<option value="توغو">توغو</option>
+	<option value="توكيلاو">توكيلاو</option>
+	<option value="تونجا">تونجا</option>
+	<option value="ترينيداد وتوباغو">ترينيداد وتوباغو</option>
+	<option value="تونس">تونس</option>
+	<option value="تركيا">تركيا</option>
+	<option value="توركمنستان">توركمنستان</option>
+	<option value="جزر تركس و كايكوس">جزر تركس و كايكوس</option>
+	<option value="توفالو">توفالو</option>
+	<option value="اوغندا">اوغندا</option>
+	<option value="اوكرانيا">اوكرانيا</option>
+	<option value="الامارات العربية المتحدة">الامارات العربية المتحدة</option>
+	<option value="المملكة المتحدة">المملكة المتحدة</option>
+	<option value="الولايات المتحدة">الولايات المتحدة</option>
+	<option value="اوروغواي">اوروغواي</option>
+	<option value="اوزبكستان">اوزبكستان</option>
+	<option value="فانواتو">فانواتو</option>
+	<option value="الفاتيكان">الفاتيكان</option>
+	<option value="فنزويلا">فنزويلا</option>
+	<option value="فيتنام">فيتنام</option>
+	<option value="جزر فيرجن البريطانية">جزر فيرجن البريطانية</option>
+	<option value="واليس وفوتونا">واليس وفوتونا</option>
+	<option value="الصحراء الغربية">الصحراء الغربية</option>
+	<option value="اليمن">اليمن</option>
+	<option value="يوغوسلافيا">يوغوسلافيا</option>
+	<option value="زائير">زائير</option>
+	<option value="زامبيا">زامبيا</option>
+	<option value="زيمبابوي">زيمبابوي</option>
 
-</select>
-											</li> 
-                                              <li>
-                                              
-								<label for="email">المدينه</label>
+</select></td>
+ <td><label for="email">الدوله</label></td>
+  </tr>
+  <tr>
+    
+    <td> <?php echo form_input(array('name'=>'city','id'=>"email",'value'=>$this->input->post('city'))); ?></td>
+    <td><label for="email">المدينه</label></td>
+  </tr>
+  <tr>
+    
+    <td> <?php echo form_input(array('name'=>'address','id'=>"email",'value'=>$this->input->post('address'))); ?></td>
+    <td><label for="email">العنوان</label></td>
+  </tr>
+  <tr>
+   
+    <td> <?php echo form_input(array('name'=>'phone','id'=>"email",'value'=>$this->input->post('phone'))); ?></td>
+     <td><label for="email">التليفون</label></td>
+  </tr>
+  <tr>
+   
+    <td> <?php echo form_input(array('name'=>'zip_code','id'=>"email",'value'=>$this->input->post('zip_code'))); ?></td>
+     <td><label for="email">الرقم البريدي</label></td>
+  </tr>
+  <tr>
+    
+    <td> <?php echo form_input(array('name'=>'parent_link','id'=>"email",'value'=>$this->input->post('parent_link'))); ?></td>
+    <td><label for="email">رابط العميل</label></td>
+  </tr>
+  <tr>
+  
+    <td> <?php echo form_password(array('name'=>'password','id'=>"email")); ?></td>
+      <td><label for="email">كلمه السر</label></td>
+  </tr>
+  <tr>
 
-                                <?php echo form_input(array('name'=>'city','id'=>"email",'onblur'=>"if(this.value=='')this.value='المدينه';" , 'onfocus'=>"if(this.value=='المدينه')this.value='';", 'value'=>"المدينه")); ?>
-											</li> 
-                                           <li>
-                                                    
-								<label for="email">الرقم البريدي</label>
+    <td> <?php echo form_password(array('name'=>'c_password','id'=>"email",)); ?></td>
+        <td> <label for="email">تأكيد كلمه السر</label></td>
+  </tr>
+</table>
 
-                                <?php echo form_input(array('name'=>'zip_code','id'=>"email",'onblur'=>"if(this.value=='')this.value='الرقم البريدي';" , 'onfocus'=>"if(this.value=='الرقم البريدي')this.value='';", 'value'=>"الرقم البريدي")); ?>
-											</li>
-                                         
-                                            <li>
-								<label for="email">كلمه السر</label>
-								
-                                 <?php echo form_password(array('name'=>'password','id'=>"email",'onblur'=>"if(this.value=='')this.value='البريد الالكتروني';" , 'onfocus'=>"if(this.value=='البريد الالكتروني')this.value='';", 'value'=>"البريد الالكتروني")); ?>
-											</li>
-                                            <li>
-                                            <label for="email">تأكيد كلمه السر</label>
-								 <?php echo form_password(array('name'=>'cpassword','id'=>"email",'onblur'=>"if(this.value=='')this.value='البريد الالكتروني';" , 'onfocus'=>"if(this.value=='البريد الالكتروني')this.value='';", 'value'=>"البريد الالكتروني")); ?>
-											</li>
-										</ul>
+                                     
+                                     
+                                     
+							
 										<div class="centerdiv">
 										<div class="cta-button optin small">
-                                         <?php echo form_button(array('name'=>'button','class'=>"cta1"),'تسجيل')?>
+                                         <button type="submit" class="cta1">تسجيل</button>
                                       
 											<span class="text"> من فضلك ادخل جميع بياناتك صحيحه لانه في حاله معرفه انها بيانات خاطئه يتم إيقاف العضويه تلقائيا</span>
 											
@@ -431,10 +441,10 @@
 
                         </div>
 				</div>	
-		</section>
+		
 				
 			</div>		
-		</section>
+		
 		<!-- end of section middle -->
 
 		<!-- start of section bottom -->

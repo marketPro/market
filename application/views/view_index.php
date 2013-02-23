@@ -40,7 +40,12 @@
 		<script src="<?php echo base_url();?>js/jquery.ui.totop.js"  type="text/javascript"></script>
 		<script src="<?php echo base_url();?>js/setting-2.js"  type="text/javascript"></script>
 		
-		<script src="<?php echo base_url();?>js/functions.js"type="text/javascript"  ></script> 
+		<script src="<?php echo base_url();?>js/functions.js"type="text/javascript"  ></script>
+        <script type="text/javascript">
+		var base_url=" <?php echo base_url();?>";
+		</script>
+        <script src="<?php echo base_url();?>js/ajax.js"type="text/javascript"  ></script>
+         
 		
 	</head>
 	<body>
@@ -59,23 +64,28 @@
 										<a href="index.html" ><img src="<?php echo base_url();?>images/logo.png"  alt="" /></a>
 									</div>	
                                     <!-- Login Starts Here -->
+                                 <div style="color:#FC0;margin-top:80px;position:absolute;margin-left:70px;">   <?php echo validation_errors()  ;?></div>
             <div id="loginContainer">
                 <a href="#" id="loginButton"><span>الدخول</span><em></em></a>
                 <div style="clear:both"></div>
                 <div id="loginBox">
                 <div id="loginForm">                
-                    <?php echo form_open('#'); ?>
+                    <?php echo form_open('site/login_validation'); ?>
                         <fieldset id="body">
                             <fieldset>
                                 <label for="email">اسم المستخدم</label>
-                                <input type="text" name="email" id="email" />
+                               
+                                 <?php echo form_input(array('name'=>'username','id'=>"name", 'value'=>$this->input->post('username') )); ?>
                             </fieldset>
                             <fieldset>
                                 <label for="password">كلمه السر</label>
-                                <input type="password" name="password" id="password" />
+                                
+                                 <?php echo form_password(array('name'=>'password','id'=>"password")); ?>
                             </fieldset>
-                              <?php echo form_button(array('name'=>'button','class'=>"cta1",'style'=>'margin-top:-6px;padding:5px 10px 5px 10px;margin-left:-1px;'),'دخول')?>
-                           
+                               <button type="submit" class="cta1" style="margin-top:-8px;padding:5px 10px 5px 10px;margin-left:-1px;">دخول</button>
+
+                              </br></br>
+                            <div id="comment_valid" style="text-align:center;color:#F90"> </div>                           
                         </fieldset>
                        
                     </form>
