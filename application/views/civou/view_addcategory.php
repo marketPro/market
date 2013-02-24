@@ -47,47 +47,60 @@
 
         <!-- start of wrapper -->
 
-            <section id="">	
-                <div class="container totop30">
-                    <section id="middle">
-                        <div id="content">
-                            <div id="left" style="background:#111">       
-                                <div class="featured_form">
-                                    <?php echo form_open('#'); ?>
-                                    <div class="heading center">
-                                        <h4><span class="bold">تسجيل قسم رئيسى</span></h4>
-                                        <div class="dotted"></div>
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <label for="name">اسم القسم</label>
-                                            <?php echo form_input(array('name' => 'catogryname', 'id' => "name", 'onblur' => "if(this.value=='')this.value='اسم القسم';", 'onfocus' => "if(this.value=='اسم القسم')this.value='';", 'value' => "اسم القسم")); ?>
-
-                                        </li>
-
-                                        <li>
-                                    
-                                        </li>
-                                      </ul>
-                                    <div class="centerdiv">
-                                        <div class="cta-button optin small">
-                                            <?php echo form_button(array('name' => 'button', 'class' => "cta1"), 'تسجيل') ?>
-                                        </div>
-                                    </div>
-                                    <?php echo form_close(); ?>
+        <section id="">	
+            <div class="container totop30">
+                <section id="middle">
+                    <div id="content">
+                        <div id="left" style="background:#111">       
+                            <div class="featured_form">
+                                <?php echo form_open('civou/c_category/addCategory'); ?>
+                                <div class="heading center">
+                                    <h4><span class="bold">تسجيل قسم رئيسى</span></h4>
+                                    <div class="dotted"></div>
                                 </div>
+                                <ul>
+                                    <li>
+                                        <label for="name">اسم القسم</label>
+                                        <?php echo form_input(array('name' => 'categoryname')); ?>
+
+                                    </li>
+
+                                    <li>
+
+                                    </li>
+                                </ul>
+                                <div class="centerdiv">
+                                    <div class="cta-button optin small">
+                                        <?php echo form_submit(array('name' => 'submit', 'class' => "cta1"), 'تسجيل') ?>
+                                    </div>
+                                </div>
+                                <div class="centerdiv">
+                                    <div class="cta-button optin small">
+
+                                        <label> 
+                                            <?php
+                                            if (isset($mes)) {
+                                                echo $mes;
+                                            }
+                                            ?>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <?php echo form_close(); ?>
+
+
                             </div>
+                        </div>
+                    </div>
+            </div>	
+        </section>
 
+    </div>		
+</section>
+<!-- end of section middle -->
+</div>
+<!-- end of wrapper -->
 
-                                </div>
-                            </div>	
-                    </section>
-
-                </div>		
-            </section>
-            <!-- end of section middle -->
-        </div>
-        <!-- end of wrapper -->
-
-    </body>
+</body>
 </html>
