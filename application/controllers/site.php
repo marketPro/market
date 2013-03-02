@@ -4,7 +4,11 @@ class Site extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('view_index');
+		 if ($this->session->userdata('logged_in')) {
+		redirect('user/profile');
+		 }else{
+			 $this->load->view('view_index');
+			 }
 	}
 	///////////////////////////
 	function market(){

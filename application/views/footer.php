@@ -1,5 +1,5 @@
-<section id="bottom">
-			<div id="bottom-wrapp"  style="">
+<section id="bottom"style="width:100%">
+			<div id="bottom-wrapp"  style="width:100%">
 				<footer>
 					<div class="container">
 						<div class="row clearfix">	

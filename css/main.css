@@ -1264,3 +1264,11 @@ margin: 20px auto 0 auto;
 #comment h6 a{color:#fff}
 #comment h6 a:hover{color:#000}
 #comment p{color:#fff;margin-right:5;margin-top:-10px;width:630px;}
+#profile_half1{float:right}
+#profile_img{float:right;margin-left:5px;border: 4px solid #eeeeee}
+#user_name{float:right;font-weight:bold;color:#fff;font-size:14px;text-transform:capitalize}
+#message{float:right;color:#fff;font-size:12px;margin-top:-6px}
+#message:hover{text-decoration:underline}
+#edit{float:right;color:#fff;font-size:12px;margin-top:5px}
+#edit:hover{text-decoration:underline}
+#state{color:#fff;font-size:12px;margin-top:-1px;}

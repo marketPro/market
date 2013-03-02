@@ -78,7 +78,17 @@
 				
 			<div id="content">
 						<div id="left">
-                      		بروفيل اهو			
+                      <div id="profile_half1">
+                      <img src="<?php echo base_url();?>upload/img2.jpg" width="150" height="120" id="profile_img" />
+                      <p id="user_name">mohamed temraz</p>
+                      </br>
+                      <a href="#" id="message"><span style="color:#F90">3</span> صندوق الرسائل</a>
+                      </br>
+                      
+                      <a href="#" id="edit">تعديل حسابي الشخصي</a>
+                      </br></br>
+                      <p id="state">مصر<span>,</span>القاهره</p>
+                      </div>		
 				</div>
                         
                         
